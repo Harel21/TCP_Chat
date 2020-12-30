@@ -25,6 +25,10 @@ def write():
     while True:
         message = f'{nickname}: {input("")}'
         client.send(message.encode('ascii'))
+        ### new addition
+        with open('log.txt', 'a') as f:
+            print(message, file=f)
+        ### end of new addition
 
 recive_thread = threading.Thread(target=recive)
 recive_thread.start()
